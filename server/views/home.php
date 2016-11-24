@@ -1,0 +1,2 @@
+<h2>Cinema Management Webapp</h2>
+<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus consectetur exercitationem, quo quis laboriosam voluptatem tenetur, natus deserunt, ex iure nostrum ab autem? Dolor, repellendus et iusto molestias at expedita!</p>
