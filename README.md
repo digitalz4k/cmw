@@ -13,9 +13,14 @@ You can also:
 
 ### Installation
 
-Dillinger requires [PHP](https://www.php.net/) v5+ to run.
+CINEMANAGER requires [PHP](https://www.php.net/) v5+ to run.
 
-Download and extract the [latest pre-built release](https://github.com/digitalz4k/cmw/archive/master.zip).
+Download and extract the [latest pre-built release](https://github.com/digitalz4k/cmw/archive/master.zip)
+
+You can also clone the repo
+```sh
+git clone https://github.com/digitalz4k/cmw.git cmw
+```
 
 Simply go to the url
 ```sh
