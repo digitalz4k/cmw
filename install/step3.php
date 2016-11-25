@@ -45,7 +45,7 @@ function writeConfig ()
 <nav class="blue">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="/cmw" class="brand-logo">Installation 3/3</a>
+            <a href="/cmw" class="brand-logo">Installation 3/4</a>
         </div>
     </div>
  </nav>
@@ -54,12 +54,16 @@ function writeConfig ()
 	<div class="container">
 		<div class="row center">
 			<?php if(writeConfig())
-				{ ?>
-				
-				<h1 class="blue-text">Congratulations!</h1>
-				<p class="flow-text">Your config file <span class="blue-text">is saved</span>.<br/> You can now start to use our amazing web application.<br/> We hope you enjoy it!</p>
-				<a href="../index.php" class="btn btn-flat blue white-text">Go to homepage</a>
-				
+				{ ?>				
+				<h1 class="blue-text">Configuration file</h1>
+				<p class="flow-text">Your config file is saved.<br/> Just one more step to start our webapp!</p>
+				<form action="step4.php" method="POST">
+					<input type="text" name="host" value="<?php echo $_POST["host"]; ?>" hidden>
+					<input type="text" name="name" value="<?php echo $_POST["name"]; ?>" hidden>
+					<input type="text" name="user" value="<?php echo $_POST["user"]; ?>" hidden>
+					<input type="text" name="pass" value="<?php echo $_POST["pass"]; ?>" hidden>
+					<input type="submit" value="Next step" class="btn btn-flat blue white-text">
+				</form>				
 				<?php } else {
 					echo "An error occurred writing your config file. Please verify your writing rights access and try again!";
 				}

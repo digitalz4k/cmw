@@ -24,7 +24,7 @@
 				$pass = '';
 			}
 
-		    $dbh = new pdo( 'mysql:host='.$host.';dbname='.$name.'', $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+		    $dbh = new pdo( 'mysql:host='.$host.'', $user, $pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 		    $dbh = null;
 
 		   	return true;
@@ -53,7 +53,7 @@
 <nav class="blue">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="/cmw" class="brand-logo">Installation 2/3</a>
+            <a href="/cmw" class="brand-logo">Installation 2/4</a>
         </div>
     </div>
  </nav>

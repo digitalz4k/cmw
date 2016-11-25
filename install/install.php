@@ -15,7 +15,7 @@
 <nav class="blue">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="/cmw" class="brand-logo">Installation 1/3</a>
+            <a href="/cmw" class="brand-logo">Installation 1/4</a>
         </div>
     </div>
  </nav>
@@ -25,7 +25,8 @@
 		<div class="center">
 			<h1 class="blue-text">Configuration required</h1>
 
-			<p class="flow-text">We gonna help you to configure and test your database connection. Ready?</p>
+			<p class="flow-text">We gonna help you to configure and test your database connection.</p>
+			<p>If you already have a database created to connect with, fill the form with its name. If you don't, we will create a database and configure the tables for you.</p>
 		</div>
 		<div class="row">
 		<form action="step2.php" method="POST" class="col s6 offset-s3 center">
