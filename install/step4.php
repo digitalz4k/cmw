@@ -40,12 +40,12 @@ $pass = $_POST["pass"];
 					$database = create_db($name);
 
 					$db = new PDO("mysql:dbname=$name;host=$host", $user, $pass);
-					echo "Creating table <span class='blue-text'>Movies</span>...<br/>";
-					$movies_table = create_table($movies, $db);
 					echo "Creating table <span class='blue-text'>Users</span>...<br/>";
 					$users_table = create_table($users, $db);
 					echo "Creating table <span class='blue-text'>Libraries</span>...<br/>";
 					$libraries_table = create_table($libraries, $db);
+					echo "Creating table <span class='blue-text'>Movies</span>...<br/>";
+					$movies_table = create_table($movies, $db);
 					echo "Database is ready...";
 					$isReady = true;
 					?>

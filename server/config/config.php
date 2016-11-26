@@ -2,7 +2,7 @@
 	// DATABASE CONFIGURATION
 	$DB = array(
 		"host" => "127.0.0.1",
-		"name" => "admin5050",
+		"name" => "cmw",
 		"user" => "root",
 		"pass" => ''
 	);

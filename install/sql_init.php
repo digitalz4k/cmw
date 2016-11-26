@@ -4,43 +4,58 @@
 */
 //MOVIES TABLE
 	$movies = "CREATE TABLE IF NOT EXISTS movies (
-			_id INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-			title VARCHAR( 80 ) NOT NULL,
-			actors VARCHAR( 250 ) NOT NULL,
-			director VARCHAR( 80 ) NOT NULL,
-			producer VARCHAR( 80 ) NOT NULL,
-			year_of_prod YEAR( 4 ) NOT NULL,
-			language VARCHAR( 80 ) NOT NULL,
+			movie_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			library_id SMALLINT UNSIGNED NOT NULL,
+			title VARCHAR(80) NOT NULL,
+			actors VARCHAR(250) NOT NULL,
+			director VARCHAR(80) NOT NULL,
+			producer VARCHAR(80) NOT NULL,
+			year_of_prod YEAR(4) NOT NULL,
+			language VARCHAR(80) NOT NULL,
 			category enum('Action', 'Romance', 'Western', 'Sci-Fi', 'Erotic') NOT NULL,
-			video VARCHAR( 80 ) NOT NULL,
-			shelf_id INT(11) NOT NULL,
+			video VARCHAR(80) NOT NULL,
 			created_at TIMESTAMP NOT NULL,
 			modified_at TIMESTAMP NOT NULL,
 			poster_url text NOT NULL,
-			storyline text NOT NULL);";
+			storyline text NOT NULL,
+			CONSTRAINT `fk_movie_library`
+				FOREIGN KEY (library_id) REFERENCES libraries (library_id)
+				ON DELETE CASCADE
+				ON UPDATE RESTRICT
+			)
+			ENGINE=InnoDB;";
 //USERS TABLE
 	$users = "CREATE TABLE IF NOT EXISTS users (
-			user_id INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-			user_level INT( 11 ) NOT NULL,
-			login VARCHAR( 80 ) NOT NULL,
-			email VARCHAR( 80 ) NOT NULL,
-			full_name VARCHAR( 255 ) NOT NULL,
-			phone INT( 20 ) NOT NULL,
-			activation_key INT( 11 ) NOT NULL,
+			user_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			user_level INT(11) NOT NULL,
+			login VARCHAR(80) NOT NULL,
+			email VARCHAR(80) NOT NULL,
+			full_name VARCHAR( 255) NOT NULL,
+			phone INT(20) NOT NULL,
+			activation_key INT(11) NOT NULL,
 			password text NOT NULL,
 			created_at TIMESTAMP NOT NULL,
 			modified_at TIMESTAMP NOT NULL,
-			picture_url text NOT NULL);";
+			picture_url text NOT NULL
+			)
+			ENGINE=InnoDB;";
 //LIBRARIES TABLE
 	$libraries = "CREATE TABLE IF NOT EXISTS libraries (
-			library_id INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
-			user_id INT( 11 ) NOT NULL,
-			shelf_name VARCHAR( 80 ) NOT NULL,
-			shelf_desc VARCHAR( 255 ) NOT NULL,
+			library_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+			user_id MEDIUMINT UNSIGNED NOT NULL,
+			shelf_name VARCHAR(80) NOT NULL,
+			shelf_desc VARCHAR(255) NOT NULL,
 			created_at TIMESTAMP NOT NULL,
 			modified_at TIMESTAMP NOT NULL,
-			shelf_icon text NOT NULL);";
-/* 
+			is_private BOOLEAN NOT NULL default 0,
+			shelf_icon text NOT NULL,
+			CONSTRAINT `fk_library_user`
+				FOREIGN KEY (user_id) REFERENCES users (user_id)
+				ON DELETE CASCADE
+				ON UPDATE RESTRICT
+			) 
+			ENGINE=InnoDB;";
+/*
 ** CREATE DATABASE 
 */
 function create_db ($dbName) {

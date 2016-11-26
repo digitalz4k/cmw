@@ -1,6 +1,6 @@
 # CINEMANAGER
 
-Cinemanager is a webapp built with PHP, SQL, and Javascript.
+Cinemanager is a webapp built with PHP, MariaDB, and Javascript.
 
   - Create a list of your favorite movies
   - Upload poster movie and attach a Youtube video trailer
@@ -9,7 +9,7 @@ Cinemanager is a webapp built with PHP, SQL, and Javascript.
 You can also:
   - Login to your account
   - Manage your lists
-  - Make a lists private if you don't want to share it
+  - Make a list private if you don't want to share it
 
 ### Installation
 
