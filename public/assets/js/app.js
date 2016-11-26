@@ -1,9 +1,11 @@
 $(document).ready(function(){
     
     console.log("JS LOADED...")
+
+    $('select').material_select()
     
     //Initialization
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav()
     $("#addmovie").hide()
     $("#listmovies").hide()
     $("#singlemovie").hide()

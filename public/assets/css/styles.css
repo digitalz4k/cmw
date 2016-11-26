@@ -7,4 +7,24 @@ body {
 main {
     flex: 1 0 auto;
 }
-      
+
+#nav-login form input[type="text"],#nav-login form input[type="password"] {
+	display: inline-block;
+	width: 95px;
+	height: 15px;
+	background: #fff;
+	border: none;
+	color: #333;
+	padding: 5px;
+}
+
+#nav-login form input[type="submit"] {
+	width: 70px;
+	padding: 0 5px;
+	text-transform: none;
+	text-align: center;
+}
+
+#form-signup .row {
+	margin: 0px;
+}   
