@@ -10,7 +10,7 @@
                 -->
                 <li id="nav-login">
                     <form class="row">                    
-                        <input id="form-login" type="text" placeholder="Login" required>
+                        <input id="form-login" type="text" placeholder="Email or phone number" required>
                         <input id="form-password" type="password" placeholder="Password" required>
                         <input id="login_form_submit" type="submit" class="btn btn-flat white-text" value="Connect">
                     </form>

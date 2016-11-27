@@ -2,6 +2,7 @@
 
 require_once("server/components/sql/request.php");
 require_once("server/controllers/movies-controller.php");
+require_once("server/controllers/users-controller.php");
 
 if($_REQUEST["action"] === "addMovie")
 {
@@ -23,6 +24,12 @@ if($_REQUEST["action"] === "listAll")
 if($_REQUEST["action"] === "getCategories")
 {
     get_categories();
+}
+
+if($_REQUEST["action"] === "signUp")
+{
+	$req = $_REQUEST;
+    add_user($req);
 }
 
 

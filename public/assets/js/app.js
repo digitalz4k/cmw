@@ -32,6 +32,28 @@ $(document).ready(function(){
     })
 
     // Get movies list
-    listAll()    
+    listAll()
+
+    var form = $("#form-signup")
+    form.submit(function(event){
+        event.preventDefault()
+
+        var newUser = $.ajax({
+            type: 'POST',
+            url: 'ajax.php?action=signUp',
+            data: form.serialize()
+        })
+
+        newUser.done(function(data){
+            window.location = "activation.php";
+        })
+
+        newUser.fail(function(jqXHR){
+            console.log(jqXHR.responseText)
+        })
+
+    })
+
+
     
 })

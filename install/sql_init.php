@@ -27,16 +27,18 @@
 //USERS TABLE
 	$users = "CREATE TABLE IF NOT EXISTS users (
 			user_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-			user_level INT(11) NOT NULL,
-			login VARCHAR(80) NOT NULL,
-			email VARCHAR(80) NOT NULL,
-			full_name VARCHAR( 255) NOT NULL,
-			phone INT(20) NOT NULL,
-			activation_key INT(11) NOT NULL,
+			user_level INT(11) NOT NULL default 0,
+			email VARCHAR(80) NULL,
+			first_name VARCHAR(255) NOT NULL,
+			last_name VARCHAR(255) NOT NULL,
+			phone INT(20) NULL,
+			activation_key INT(11) NULL,
 			password text NOT NULL,
 			created_at TIMESTAMP NOT NULL,
 			modified_at TIMESTAMP NOT NULL,
-			picture_url text NOT NULL
+			picture_url text NULL,
+			gender BOOLEAN NOT NULL,
+			birthdate DATE NOT NULL
 			)
 			ENGINE=InnoDB;";
 //LIBRARIES TABLE

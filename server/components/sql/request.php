@@ -25,7 +25,13 @@ function db_request($sql, $params)
 	        
 	    $stmt->execute($params);
 	    
-	    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	    $cols = $stmt->columnCount();
+	    
+	    if($cols>0)
+	    	$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	    else
+	    	$res = null;
+
 	    $nb = $stmt->rowCount();
 
 	    // RETURN RES + ROWCOUNT
