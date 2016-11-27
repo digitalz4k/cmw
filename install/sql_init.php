@@ -31,7 +31,7 @@
 			email VARCHAR(80) NULL,
 			first_name VARCHAR(255) NOT NULL,
 			last_name VARCHAR(255) NOT NULL,
-			phone INT(20) NULL,
+			phone VARCHAR(20) NULL,
 			activation_key INT(11) NULL,
 			password text NOT NULL,
 			created_at TIMESTAMP NOT NULL,
