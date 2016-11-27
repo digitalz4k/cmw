@@ -42,6 +42,14 @@ $Routes = [
 // GetRoute method
 function getRoute ($req, $auth) {
     global $Routes;
+
+    //DEBUG AUTH
+    /*
+    if($auth == true)
+        echo "authed";
+    else
+        echo "not authed";
+    */
     
     // If requested page exists in $Routes
     if (isset($Routes[$req])) {
@@ -57,12 +65,15 @@ function getRoute ($req, $auth) {
         **  - redirect to page requested both user authed and not authed
         */
 
-        if( ($Routes[$req]["auth"] === true && $auth === true && $_SESSION["auth"] === true) || 
-            ($Routes[$req]["auth"] = $auth === false) ||
-            ($Routes[$req]["auth"] === false && $auth === true && $_SESSION["auth"] === true) )
+        if($Routes[$req]["auth"] == true) {
+            if(isset($_SESSION["auth"]))
+                return $Routes[$req]["path"];
+            else
+                return $Routes["login"]["path"];
+        }
+        else {
             return $Routes[$req]["path"];
-        else
-            return $Routes["login"]["path"];
+        }
     } else {
         return $Routes["home"];
     }    

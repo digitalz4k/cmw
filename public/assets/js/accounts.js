@@ -32,6 +32,7 @@ signin_form.submit(function(event){
         window.location.href= "index.php?page=dashboard"
     })
     .fail(function(jqXHR){
-        console.log(jqXHR.responseText)
+        err = jqXHR.responseText
+        window.location.href= "index.php?page=login&error=" + err
     })
 })

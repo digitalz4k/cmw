@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //GLOBAL SETTINGS FILES
 require_once("core.php");
 

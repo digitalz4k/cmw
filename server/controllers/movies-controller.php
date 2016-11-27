@@ -63,36 +63,3 @@ function add ($req)
         die("Error while adding your movie. Please try again.");
     }
 }
-
-function get_categories () 
-{
-    $sql = "SHOW COLUMNS FROM movies LIKE ?;";
-    $params = array("category");
-
-    $req = db_request($sql, $params);
-
-    if($req["nb"] > 0) {
-    
-        $res = $req["res"][0];
-        
-        if($res['Field'] == "category")
-        {            
-            $types=$res['Type'];
-            $beginStr=strpos($types,"(")+1;
-            $endStr=strpos($types,")");
-            $types=substr($types,$beginStr,$endStr-$beginStr);
-            $types=str_replace("'","",$types);
-            $types=split(',',$types);
-            // Response
-            header("HTTP/1.0 200 OK");
-            echo json_encode($types);            
-        } else {            
-            header("HTTP/1.0 404 Not Found");
-            die("Categories not found.");        
-        }
-        
-    } else {
-        header("HTTP/1.0 404 Not Found");
-        die("List of categories empty.");
-    }
-}

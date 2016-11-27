@@ -7,8 +7,8 @@
             <?php
             if(isset($_SESSION["auth"]) && $_SESSION["auth"] == true) {
             ?>
-                <li><a href="#!" class="showlist">Liste des films</a></li>
-                <li><a href="#!" class="showadd">Ajouter un film</a></li>
+                <li><a href="?page=movieslist">Liste des films</a></li>
+                <li><a href="?page=addmovie">Ajouter un film</a></li>
                 <li><a href="?page=logout">Logout</a></li>
             <?php } else { ?>
                 <li id="nav-login">
@@ -23,9 +23,9 @@
             <ul class="side-nav" id="mobile-demo">
             <?php
             if(isset($_SESSION["auth"]) && $_SESSION["auth"] == true ) {
-            ?>                    
-                <li><a href="#!" class="showlist">Liste des films</a></li>
-                <li><a href="#!" class="showadd">Ajouter un film</a></li>
+            ?>
+                <li><a href="?page=movieslist">Liste des films</a></li>
+                <li><a href="?page=addmovie">Ajouter un film</a></li>
                 <li><a href="?page=logout">Logout</a></li>
             <?php } else { ?>
                 <li><a href="?page=login" >Login</a></li>
