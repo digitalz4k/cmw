@@ -97,7 +97,9 @@
 	    	</div>
       </div>
       <div class="row">
-      	<button id="newUser" class="waves-effect waves-teal btn-flat btn-large teal white-text">Create new account</button>
+      	<div class="input-field col s12">
+      		<button id="newUser" class="waves-effect waves-teal btn-flat btn-large teal white-text">Create new account</button>
+      	</div>
       </div>
 
     </form>

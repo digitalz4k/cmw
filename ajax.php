@@ -32,5 +32,11 @@ if($_REQUEST["action"] === "signUp")
     add_user($req);
 }
 
+if($_REQUEST["action"] === "signIn")
+{
+	$req = $_REQUEST;
+    connect_user($req);
+}
+
 
 ?>

@@ -9,10 +9,10 @@
                 <li><a href="#!" class="showadd">Ajouter un film</a></li>
                 -->
                 <li id="nav-login">
-                    <form class="row">                    
-                        <input id="form-login" type="text" placeholder="Email or phone number" required>
-                        <input id="form-password" type="password" placeholder="Password" required>
-                        <input id="login_form_submit" type="submit" class="btn btn-flat white-text" value="Connect">
+                    <form id="form-signin" class="row">
+                        <input type="text" name="login" placeholder="Email or phone number" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="submit" class="btn btn-flat white-text" value="Connect">
                     </form>
                 </li>
             </ul>

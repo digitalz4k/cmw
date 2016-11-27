@@ -1,6 +1,7 @@
 <?php
 
-function secure($val) {
+function secure ($val) 
+{
     if($val !== "") {
         return htmlentities($val);
     } else  {
@@ -9,7 +10,26 @@ function secure($val) {
     }
 }
 
-function db_request($sql, $params)
+function verify_type ($val) 
+{
+	$phone_pattern = '/\+?[0-9][0-9()]{4,20}/';
+
+	if(preg_match($phone_pattern, $val))
+	{
+		return 'phone';
+	}
+	else if(filter_var($val, FILTER_VALIDATE_EMAIL))
+	{
+		return 'email';
+	}
+	else
+	{
+		header("HTTP/1.0 500 Internal Server Error");
+		die("Error with email or phone number.");
+	}
+}
+
+function db_request ($sql, $params)
 {
 	require_once("./server/config/config.php");
 
