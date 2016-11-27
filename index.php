@@ -1,4 +1,7 @@
 <?php
-    require_once("core.php");
-    include("server/views/layout.php");
-?>
+
+//GLOBAL SETTINGS FILES
+require_once("core.php");
+
+//HTML LAYOUT FILE
+require_once("server/views/layout.php");

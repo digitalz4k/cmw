@@ -1,14 +1,36 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cinema Management Webapp</title>
-    
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/assets/css/styles.css" type="text/css" />
-</head>
-<body>
-    <?php include("nav.php"); ?>
+<nav class="blue">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/cmw" class="brand-logo">Cinemanager</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+            <?php
+            if(isset($_SESSION["auth"]) && $_SESSION["auth"] == true) {
+            ?>
+                <li><a href="#!" class="showlist">Liste des films</a></li>
+                <li><a href="#!" class="showadd">Ajouter un film</a></li>
+                <li><a href="?page=logout">Logout</a></li>
+            <?php } else { ?>
+                <li id="nav-login">
+                    <form class="row form-signin">
+                        <input type="text" name="login" placeholder="Email or phone number" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="submit" class="btn btn-flat white-text" value="Connect">
+                    </form>
+                </li>
+            <?php } ?>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+            <?php
+            if(isset($_SESSION["auth"]) && $_SESSION["auth"] == true ) {
+            ?>                    
+                <li><a href="#!" class="showlist">Liste des films</a></li>
+                <li><a href="#!" class="showadd">Ajouter un film</a></li>
+                <li><a href="?page=logout">Logout</a></li>
+            <?php } else { ?>
+                <li><a href="?page=login" >Login</a></li>
+            <?php } ?>
+            </ul>
+        </div>
+    </div>
+ </nav>

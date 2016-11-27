@@ -23,12 +23,3 @@
     </div>
   </div>
 </footer>
-        
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="application/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script type="text/javascript" src="public/assets/js/accounts.js"></script>
-    <script type="text/javascript" src="public/assets/js/movies.js"></script>
-    <script type="text/javascript" src="public/assets/js/app.js"></script>
-</body>
-</html>

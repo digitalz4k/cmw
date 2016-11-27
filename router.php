@@ -1,16 +1,86 @@
 <?php
 
-print_r($_REQUEST);
+// Location of template pages
+$location = 'server/views/';
 
-if(isset($_REQUEST["activation"]))
-{
-	header("Location: /server/views/dashboard/activation.php");
+// Defined routes of the APP
+$Routes = [
+    'home' =>  array(
+        'path' => 'home',
+        'auth' => false
+    ),
+    'dashboard' => array(
+        'path' => 'dashboard/dashboard',
+        'auth' => true
+    ),
+    'login' => array(
+        'path' => 'login',
+        'auth' => false
+    ),
+    'logout' => array(
+        'path' => 'logout',
+        'auth' => true
+    ),
+    'activation' => array(
+        'path' => 'dashboard/activation',
+        'auth' => false
+    ),
+    'movieslist' => array(
+        'path' => 'movies/movie-list-all',
+        'auth' => true
+    ),
+    'addmovie' => array(
+        'path' => 'movies/movie-add',
+        'auth' => true
+    ),
+    'movie' => array(
+        'path' => 'movies/movie-list-single',
+        'auth' => true
+    )
+];
+
+// GetRoute method
+function getRoute ($req, $auth) {
+    global $Routes;
+    
+    // If requested page exists in $Routes
+    if (isset($Routes[$req])) {
+
+        /*
+        **  Page Access Verification
+        **
+        **  If page auth
+        **  - redirect to login if user not authed
+        **  - redirect to page requested if user authed
+        **
+        **  If !page auth
+        **  - redirect to page requested both user authed and not authed
+        */
+
+        if( ($Routes[$req]["auth"] === true && $auth === true && $_SESSION["auth"] === true) || 
+            ($Routes[$req]["auth"] = $auth === false) ||
+            ($Routes[$req]["auth"] === false && $auth === true && $_SESSION["auth"] === true) )
+            return $Routes[$req]["path"];
+        else
+            return $Routes["login"]["path"];
+    } else {
+        return $Routes["home"];
+    }    
 }
 
-if($_REQUEST["page"] === "dashboard")
-{
-	if($_REQUEST["auth"])
-		header("Location: server/views/dashboard/dashboard.php");
-	else
-		header("Location: index.php");
-}
+/*
+**  Router redirect
+**
+**  If !auth param => set to false (user not logged)
+**  If auth param => set to true (user logged)
+*/
+if(isset($_GET["page"]))
+    if(isset($_SESSION["auth"]))
+        $page = getRoute($_GET["page"], true);
+    else
+        $page = getRoute($_GET["page"], false);
+else
+    if(isset($_SESSION["auth"]))
+        $page = getRoute("home", true);
+    else
+        $page = getRoute("home", false);

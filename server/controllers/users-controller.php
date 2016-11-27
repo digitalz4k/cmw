@@ -79,6 +79,9 @@ function connect_user ($user)
 	$req = db_request($sql, $params);
 	if($req["nb"]>0)
 	{
+		session_start();
+		$_SESSION["user"] = $req["res"];
+		$_SESSION["auth"] = true;
 		header("HTTP/1.0 200 OK");
 		echo json_encode($req["res"]);
 	} else {
